@@ -31,8 +31,17 @@ public class Memory {
 	}
 	
 	//aumenta tamaño del array
+	//haces un array nuevo con el doble del anterior
+	//en la mitad del nuevo array se meten los elementos que habia en el array de antes y en la segunda mitad se inicializan todas las posiciones a null
+	//luego el nuevo array pasa a ser el atributo
+	//this.memory = mi_nuevo_array
+	//solamente se ejecuta cuando la posicion en la que quiero escribir esta fuera del array.lenght
+	//deberia recibir pos
 	public void resize() {
+		Integer new_array[] = new Integer[10];
+
+
 		
 	}
-	
+
 }

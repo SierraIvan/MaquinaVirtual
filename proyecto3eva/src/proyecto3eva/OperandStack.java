@@ -13,7 +13,6 @@ public class OperandStack {
 
 	public String toString() {
 		return null;
-		
 	}
 
 	public boolean isEmpty() {

@@ -1,8 +1,14 @@
 package proyecto3eva;
 
 public class ByteCode {
+	
+	private ENUM_BYTECODE name;
+	private int param;
 
+	
 	public void push(int n) {
+		
+		
 		
 	}
 	
