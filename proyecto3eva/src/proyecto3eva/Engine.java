@@ -2,65 +2,52 @@ package proyecto3eva;
 
 import java.util.Scanner;
 
-public class Engine {
+class Engine {
+    private ByteCodeProgram program;
+    private boolean end;
+
+    public Engine() {
+        this.program = new ByteCodeProgram();
+        this.end = false;
+    }
+        
 
 	public void start() {
 		System.out.println("El programa se ha iniciado");
 		Scanner sc = new Scanner(System.in);
 		String option;
 		do {
+		System.out.print("> ");
 		option = sc.next();
-		switch (option) {
+		switch (option.toUpperCase()) {
 		case "HELP":
-			help();
+			Command.help();
 			break;
 		case "QUIT":
-			quit();
+			Command.quit();
 			break;
 		case "RUN":
-			run();
+			Command.run();
 			break;
 		case "NEWINST":
-			newinst();
+			Command.newinst();
 			break;
 		case "RESET":
-			reset();
+			Command.reset();
 			break;
 		case "REPLACE":
-			replace();
+			Command.replace();
 			break;
 		default:
 			System.out.println("Comando no reconocido");
 			break;
 		}
-		//sc.close();
-	}while (!option.equals("QUIT"));
-	}
-
-	public void help() {
-		System.out.println("HELP: Te muestra los comandos\nQUIT: Se sale del programa\nRUN: Inicia el programa");
-		System.out.println("NEWINST BYTECODE: Introduce una nueva instrucción al programa\nRESET: Resetea el programa");
-		System.out.println("REPLACE N: Reemplaza la instrucción N");
-	}
-
-	public void quit() {
-		System.out.println("Saliendo del programa...");
-
-	}
-
-	public void run() {
-		System.out.println("Iniciando el programa...");
-	}
-
-	public void newinst() {
-
-	}
-
-	public void reset() {
 		
+		
+		//sc.close();
+	}while (!option.equals("QUIT") && !option.equals("quit") && !option.equals("Quit"));
 	}
+	
 
-	public void replace() {
-
-	}
+    
 }
