@@ -10,10 +10,12 @@ public class CommandParser {
 		
 		String option = line.toUpperCase();		
 		if(option != "HELP" && option != "RUN" && option != "NEWINST" && option != "RESET" && option != "REPACE") {
+			
 			return null;
+			
 		}
-		return null;
-		
+		ENUM_COMMAND ENUM_COMMAND = null;
+		return new Command(ENUM_COMMAND, null, -1);
 		
 	}
 

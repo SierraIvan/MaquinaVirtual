@@ -18,7 +18,6 @@ public class Memory {
 	//recibe posicion y valor
 	public boolean write(int pos, int valor){
 		this.memory[pos] = valor;
-		
 		return true;
 		
 	}

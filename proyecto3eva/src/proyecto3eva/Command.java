@@ -2,6 +2,8 @@ package proyecto3eva;
 
 import java.util.Scanner;
 
+
+
 public class Command {
 	
 	private ENUM_COMMAND command;
@@ -14,12 +16,9 @@ public class Command {
         this.replace = replace;
     }
 
-	public boolean execute(Engine engine) {
+	public static boolean execute(String engine) {
 		
-		Scanner sc = new Scanner(System.in);
-		String option;
-		option = sc.next();
-		switch (option) {
+		switch (engine) {
 		case "HELP":
 			help();
 			break;
@@ -39,11 +38,12 @@ public class Command {
 			replace();
 			break;
 		default:
-			System.out.println("Comando no reconocido");
-			break;
+			System.out.println("Comando no reconocido.");
+			return false;
 		}
 		//en caso de que la ejecucion del comando sea incorrecta, devuelve false
-		return false;
+		return true;
+		
 		
 	}
 	public static void help() {
@@ -60,11 +60,10 @@ public class Command {
 	public static void run() {
 		System.out.println("Iniciando el programa...");
 			
-		
 	}
 
 	public static void newinst() {
-
+		
 	}
 
 	public static void reset() {
@@ -72,7 +71,7 @@ public class Command {
 	}
 
 	public static void replace() {
-
+		
 	}
 	
 

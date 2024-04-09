@@ -11,12 +11,16 @@ public class ByteCodeProgram {
     }
 	
 	public void addbytecode(ByteCode instruction) {
+		if(size < program.length) {
 		program[size] = instruction;
 		size++;
+		}else {
+			System.out.println("ERROR: no se pueden agregar, el programa esta completo");
+		}
 			
 	}
 	
-	public void repalebytecode(ByteCode instruction, int pos) {
+	public void replacebytecode(ByteCode instruction, int pos) {
 	
 		program[pos] = instruction;
 		

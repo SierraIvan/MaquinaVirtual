@@ -18,8 +18,17 @@ class Engine {
 		String option;
 		do {
 		System.out.print("> ");
-		option = sc.next();
-		switch (option.toUpperCase()) {
+		
+			
+		
+		option = sc.next().toUpperCase();
+		String line = sc.nextLine();
+		Command command = CommandParser.parse(line);
+		if(command != null) {
+		//if(CommandParser.parse(option) == null) {
+		
+			Command.execute(option);
+		/*switch (option) {
 		case "HELP":
 			Command.help();
 			break;
@@ -41,12 +50,16 @@ class Engine {
 		default:
 			System.out.println("Comando no reconocido");
 			break;
+		}*/
+		
 		}
-		
-		
-		//sc.close();
-	}while (!option.equals("QUIT") && !option.equals("quit") && !option.equals("Quit"));
+	}while (!option.equals("QUIT"));
 	}
+	
+	
+    public ByteCodeProgram getProgram() {
+        return program;
+    }
 	
 
     
