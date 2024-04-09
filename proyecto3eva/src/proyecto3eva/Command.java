@@ -1,7 +1,5 @@
 package proyecto3eva;
 
-import java.util.Scanner;
-
 
 
 public class Command {
@@ -14,6 +12,18 @@ public class Command {
         this.command = command;
         this.instruction = instruction;
         this.replace = replace;
+    }
+    
+    public ENUM_COMMAND getCommand() {
+        return command;
+    }
+
+    public ByteCode getInstruction() {
+        return instruction;
+    }
+
+    public int getReplace() {
+        return replace;
     }
 
 	public static boolean execute(String engine) {
@@ -63,6 +73,7 @@ public class Command {
 	}
 
 	public static void newinst() {
+		
 		
 	}
 

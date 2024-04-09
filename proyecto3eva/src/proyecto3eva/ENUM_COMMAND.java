@@ -1,6 +1,10 @@
 package proyecto3eva;
 
-public enum ENUM_COMMAND {
+/*public class ENUM_COMMAND {
+
+}*/
+
+enum ENUM_COMMAND {
     HELP, QUIT, NEWINST, RUN, RESET, REPLACE
 }
 

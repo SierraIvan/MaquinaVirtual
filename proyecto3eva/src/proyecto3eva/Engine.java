@@ -22,8 +22,8 @@ class Engine {
 			
 		
 		option = sc.next().toUpperCase();
-		String line = sc.nextLine();
-		Command command = CommandParser.parse(line);
+		//String line = sc.nextLine();
+		Command command = CommandParser.parse(option);
 		if(command != null) {
 		//if(CommandParser.parse(option) == null) {
 		
@@ -56,9 +56,9 @@ class Engine {
 	}while (!option.equals("QUIT"));
 	}
 	
-	
-    public ByteCodeProgram getProgram() {
-        return program;
+    
+    public void setEnd(boolean end) {
+        this.end = true;
     }
 	
 
