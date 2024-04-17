@@ -8,15 +8,21 @@ public class Command {
 	private ByteCode instruction;
 	private int replace;
 	
-    public Command(ENUM_COMMAND command, ByteCode instruction, int replace) {
+    public Command(ENUM_COMMAND command) {
+        this.command = command;
+    }
+    public Command(ENUM_COMMAND command, ByteCode instruction) {
         this.command = command;
         this.instruction = instruction;
+    }
+    public Command(ENUM_COMMAND command, int replace) {
+        this.command = command;
         this.replace = replace;
     }
     
     public ENUM_COMMAND getCommand() {
         return command;
-    }
+    }	
 
     public ByteCode getInstruction() {
         return instruction;
@@ -28,24 +34,25 @@ public class Command {
 
 	public static boolean execute(String engine) {
 		
+		Engine engine1 = new Engine();
 		switch (engine) {
 		case "HELP":
-			help();
+			engine1.help();
 			break;
 		case "QUIT":
-			quit();
+			engine1.quit();
 			break;
 		case "RUN":
-			run();
+			engine1.run();
 			break;
 		case "NEWINST":
-			newinst();
+			engine1.newinst();
 			break;
 		case "RESET":
-			reset();
+			engine1.reset();
 			break;
 		case "REPLACE":
-			replace();
+			engine1.replace();
 			break;
 		default:
 			System.out.println("Comando no reconocido.");
@@ -56,34 +63,7 @@ public class Command {
 		
 		
 	}
-	public static void help() {
-		System.out.println("HELP: Te muestra los comandos\nQUIT: Se sale del programa\nRUN: Inicia el programa");
-		System.out.println("NEWINST BYTECODE: Introduce una nueva instrucción al programa\nRESET: Resetea el programa");
-		System.out.println("REPLACE N: Reemplaza la instrucción N");
-	}
 
-	public static void quit() {
-		System.out.println("Saliendo del programa...");
-
-	}
-
-	public static void run() {
-		System.out.println("Iniciando el programa...");
-			
-	}
-
-	public static void newinst() {
-		
-		
-	}
-
-	public static void reset() {
-		
-	}
-
-	public static void replace() {
-		
-	}
 	
 
 }

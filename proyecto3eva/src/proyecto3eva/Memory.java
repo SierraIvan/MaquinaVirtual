@@ -7,9 +7,11 @@ public class Memory {
 	private final int MAX_Memory = 10;
 	private Integer memory[];
 	private int size;
+	private boolean empty;
 	
 	public Memory() {
 		this.memory =  new Integer [MAX_Memory];
+		
 	}
 	
 	
@@ -17,16 +19,24 @@ public class Memory {
 	
 	//recibe posicion y valor
 	public boolean write(int pos, int valor){
+		if(pos >=0) {
+			this.resize(pos);
 		this.memory[pos] = valor;
 		return true;
+		}else {
+			return false;
+		}
 		
 	}
 	
 	//recibe posicion del array
-	public void Read(int pos) {
-		System.out.println(this.memory[pos]);
-		//return this.memory[pos];
-		
+	public Integer Read(int pos) {
+		//System.out.println(this.memory[pos]);
+		if(this.memory[pos] == null) {
+			return -1;
+		}else {
+		return this.memory[pos];
+		}
 	}
 	
 	//aumenta tamaño del array
@@ -36,16 +46,20 @@ public class Memory {
 	//this.memory = new_array
 	//solamente se ejecuta cuando la posicion en la que quiero escribir esta fuera del array.lenght
 	//deberia recibir pos
-	public void resize() {
-		Integer new_array[] = new Integer[memory.length * 2];
-		for(int i = 0; i < new_array.length;i++) {
-			if(i<= new_array.length/2) {
-				new_array[i] = memory[i];
+	private void resize(int pos) {
+		empty = false;
+		if(pos >= this.size) {
+			pos = pos * 2;
+		}
+		Integer array2[] = new Integer[pos];
+		for(int i = 0; i < array2.length;i++) {
+			if(i<= array2.length/2) {
+				array2[i] = memory[i];
 			}else {
-				new_array[i] = null;
+				array2[i] = null;
 			}
 		}
-		this.memory = new_array;
+		this.memory = array2;
 
 	}
 

@@ -4,23 +4,28 @@ public class OperandStack {
 
 	private final int MAX_STACK = 10;
 	private int stack[];
-	int elems;
+	int numElems;
 
 	public OperandStack() {
 		this.stack = new int[MAX_STACK];
-		this.elems = 0;
+		this.numElems = 0;
 	}
 
 	public String toString() {
-		return null;
+		String temp = null;
+		if(stack.length == 0) {
+			temp = "vacio";
+		}
+		return temp;
 	}
 
 	public boolean isEmpty() {
-		return true;
+		return this.numElems == 0;
 		
 	}
 
-	public void push(int elem) {
+	public boolean push(int elem) {
+		return true;
 		
 	}
 

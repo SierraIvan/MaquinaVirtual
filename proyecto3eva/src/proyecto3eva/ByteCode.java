@@ -6,11 +6,12 @@ public class ByteCode {
 	private int param;
 	
 	
+	public ByteCode(ENUM_BYTECODE valueOf, int valueArg) {
+		// TODO Auto-generated constructor stub
+	}
 
-	
 	public void push(int n) {
 		
-	
 	}
 	
 	public void add() {

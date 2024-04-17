@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 class Engine {
     private ByteCodeProgram program;
-    private boolean end;
+    boolean end;
 
     public Engine() {
         this.program = new ByteCodeProgram();
@@ -13,7 +13,7 @@ class Engine {
         
 
 	public void start() {
-		System.out.println("El programa se ha iniciado");
+		//System.out.println("El programa se ha iniciado");
 		Scanner sc = new Scanner(System.in);
 		String option;
 		do {
@@ -57,9 +57,38 @@ class Engine {
 	}
 	
     
-    public void setEnd(boolean end) {
-        this.end = true;
+    public void setEnd() {
+       this.end = true;
     }
+    
+	public void help() {
+		System.out.println("HELP: Te muestra los comandos\nQUIT: Se sale del programa\nRUN: Inicia el programa");
+		System.out.println("NEWINST BYTECODE: Introduce una nueva instrucción al programa\nRESET: Resetea el programa");
+		System.out.println("REPLACE N: Reemplaza la instrucción N");
+	}
+
+	public void quit() {
+		setEnd();
+		System.out.println("Saliendo del programa...");
+
+	}
+
+	public  void run() {
+		System.out.println("Iniciando el programa...");
+			
+	}
+
+	public void newinst() {
+		
+	}
+
+	public void reset() {
+		
+	}
+
+	public void replace() {
+		
+	}
 	
 
     
