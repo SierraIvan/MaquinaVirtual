@@ -24,33 +24,13 @@ class Engine {
 		option = sc.next().toUpperCase();
 		//String line = sc.nextLine();
 		Command command = CommandParser.parse(option);
-		if(command != null) {
+		if(command == null) {
+			System.out.println("comando incorrec");
+		}else {
 		//if(CommandParser.parse(option) == null) {
 		
 			Command.execute(option);
-		/*switch (option) {
-		case "HELP":
-			Command.help();
-			break;
-		case "QUIT":
-			Command.quit();
-			break;
-		case "RUN":
-			Command.run();
-			break;
-		case "NEWINST":
-			Command.newinst();
-			break;
-		case "RESET":
-			Command.reset();
-			break;
-		case "REPLACE":
-			Command.replace();
-			break;
-		default:
-			System.out.println("Comando no reconocido");
-			break;
-		}*/
+
 		
 		}
 	}while (!option.equals("QUIT"));
@@ -83,6 +63,7 @@ class Engine {
 	}
 
 	public void reset() {
+		System.out.println("pila reseteada");
 		
 	}
 

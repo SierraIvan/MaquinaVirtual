@@ -3,10 +3,20 @@ package proyecto3eva;
 public class ByteCode {
 	
 	private ENUM_BYTECODE name;
-	private int param;
+	private Integer param;
 	
+	public ByteCode(ENUM_BYTECODE name) {
+		this.name = name;
+		
+		
+		
+		// TODO Auto-generated constructor stub
+	}
 	
-	public ByteCode(ENUM_BYTECODE valueOf, int valueArg) {
+	public ByteCode(ENUM_BYTECODE name, Integer param) {
+		
+		this.name = name;
+		this.param = param;
 		// TODO Auto-generated constructor stub
 	}
 
@@ -45,4 +55,14 @@ public class ByteCode {
 	public void halt() {
 		
 	}
+	
+	public String ToString() {
+		String param2 = param.toString();
+		String name2 = name.toString();
+		String bytecodename = name2 + " " + param2;
+		return bytecodename;
+		
+		//return param.toString();
+	}
+	
 }

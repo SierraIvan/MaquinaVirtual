@@ -50,17 +50,16 @@ public class Memory {
 		empty = false;
 		if(pos >= this.size) {
 			pos = pos * 2;
-		}
 		Integer array2[] = new Integer[pos];
 		for(int i = 0; i < array2.length;i++) {
-			if(i<= array2.length/2) {
+			if(i <= array2.length/2) {
 				array2[i] = memory[i];
 			}else {
 				array2[i] = null;
 			}
 		}
 		this.memory = array2;
-
+		}
 	}
 
 }

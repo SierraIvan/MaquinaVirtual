@@ -3,14 +3,60 @@ package proyecto3eva;
 public class CPU {
 	
 	private OperandStack pila;
-	private int memory;
-	
+	private Memory memoria;
 	private boolean end;
 	
 	
-	public boolean execute(ByteCode instr) {
-		//si da error, devuelve false
-		return false;
+	public CPU() {
+		this.pila = pila;
+		this.memoria = memoria;
+		this.end = false;
+	}
+	
+	
+	public void ToString() {
+		OperandStack operandStack = new OperandStack();
+		operandStack.toString();
+		Memory memory = new Memory();
+		memory.toString();
+	}
+	
+	
+	public void erase() {
+		this.pila = pila;
+		this.memoria = memoria;
+	}
+	
+	public boolean IsHalt() {
+		return end;
+	}
+	
+	public void sumapila() {
+		
 		
 	}
+	
+	public void restapila() {
+		
+	}
+	
+	public void divpila() {
+		
+	}
+	
+	public void mulpila() {
+		
+	}
+	public boolean execute(ByteCode instr) {
+		
+		/*if(instr == ENUM_BYTECODE.ADD) {
+			if(sumapila()) {
+				return true;
+			}else {
+				return false;
+			}
+		}*/
+		return false;
+	}
 }
+	

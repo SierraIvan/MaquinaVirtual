@@ -20,6 +20,12 @@ public class Command {
         this.replace = replace;
     }
     
+    public Command(ENUM_COMMAND command, ByteCode instruction, int replace) {
+        this.command = command;
+        this.instruction = instruction;
+        this.replace = replace;
+    }
+    
     public ENUM_COMMAND getCommand() {
         return command;
     }	
@@ -31,8 +37,46 @@ public class Command {
     public int getReplace() {
         return replace;
     }
-
+    
+    
+    
 	public static boolean execute(String engine) {
+
+		
+		String[] parts = engine.trim().split(" ");
+		
+		Engine engine1 = new Engine();
+		
+		switch (parts[0]) {
+		case "HELP":
+			engine1.help();
+			break;
+		case "QUIT":
+			engine1.quit();
+			engine1.setEnd();
+			break;
+		case "RUN":
+			engine1.run();
+			break;
+		case "NEWINST":
+			engine1.newinst();
+			break;
+		case "RESET":
+			engine1.reset();
+			break;
+		case "REPLACE":
+			engine1.replace();
+			break;
+		default:
+			System.out.println("Comando no reconocido.");
+			return false;
+		}
+		// en caso de que la ejecucion del comando sea incorrecta, devuelve false
+		
+	
+		return true;}
+
+	/*public static boolean execute(String engine) {
 		
 		Engine engine1 = new Engine();
 		switch (engine) {
@@ -40,7 +84,8 @@ public class Command {
 			engine1.help();
 			break;
 		case "QUIT":
-			engine1.quit();
+			 engine1.quit();
+             engine1.setEnd();
 			break;
 		case "RUN":
 			engine1.run();
@@ -62,7 +107,8 @@ public class Command {
 		return true;
 		
 		
-	}
+	}*/
+	
 
 	
 
