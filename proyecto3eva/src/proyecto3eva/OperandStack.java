@@ -25,19 +25,33 @@ public class OperandStack {
 	}
 
 	public boolean push(int elem) {
-		return true;
+		if(MAX_STACK <= numElems) {
+			System.out.println("La pila está llena.");
+            return false;
+		}
+		numElems++;
+        stack[numElems] = elem;
+        return true;
 		
 	}
 
-	public void pop() {
-		if (isEmpty() == true) {
-		
+	public int pop() {
+		if (isEmpty()) {
+			System.out.println("la pila esta vacia");
+			return -1;
+		}else {
+			int value = stack[numElems];
+			numElems--;
+			return value;
 		}
 	}
 
-	public void peek() {
-		if (isEmpty() == true) {
-			
+	public int peek() {
+		if (isEmpty()) {
+			System.out.println("la pila esta vacia");
+			return -1;
+		}else {
+			return stack[numElems];
 		}
 	}
 

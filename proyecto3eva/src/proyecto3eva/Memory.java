@@ -9,12 +9,21 @@ public class Memory {
 	private int size;
 	private boolean empty;
 	
+	
 	public Memory() {
 		this.memory =  new Integer [MAX_Memory];
 		
 	}
 	
+	/*operandStack, memomry, BCprogram, y no se acuerda de mas, esta en el commit que tiene privado, la CPU,me espero epicamente, cree que ya esta, un saludo*/
 	
+	public String ToString() {
+		String temp = "";
+		for(int i = 0; i < memory.length;i++) {
+			temp = temp + " " + memory[i];
+		}
+		return temp;
+	}
 	
 	
 	//recibe posicion y valor
@@ -28,6 +37,10 @@ public class Memory {
 		}
 		
 	}
+	
+	  public boolean isEmpty() {
+	        return size == 0;
+	    }
 	
 	//recibe posicion del array
 	public Integer Read(int pos) {
@@ -62,4 +75,6 @@ public class Memory {
 		}
 	}
 
+	
+	
 }

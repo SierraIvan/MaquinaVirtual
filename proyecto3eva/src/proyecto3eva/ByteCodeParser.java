@@ -16,7 +16,6 @@ public class ByteCodeParser {
 			switch(bytecodeEnum) {
 			case ADD:
 				return new ByteCode(ENUM_BYTECODE.ADD);
-				
 			case SUB:
 				return new ByteCode(ENUM_BYTECODE.SUB);
 			case MUL:

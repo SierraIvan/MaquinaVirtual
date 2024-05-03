@@ -27,12 +27,11 @@ public class CPU {
 		this.memoria = memoria;
 	}
 	
-	public boolean IsHalt() {
+	public boolean isHalt() {
 		return end;
 	}
 	
 	public void sumapila() {
-		
 		
 	}
 	

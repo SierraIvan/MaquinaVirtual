@@ -7,10 +7,7 @@ public class ByteCode {
 	
 	public ByteCode(ENUM_BYTECODE name) {
 		this.name = name;
-		
-		
-		
-		// TODO Auto-generated constructor stub
+			
 	}
 	
 	public ByteCode(ENUM_BYTECODE name, Integer param) {
@@ -21,6 +18,7 @@ public class ByteCode {
 	}
 
 	public void push(int n) {
+		/*lo mete en la pila del operandStack*/
 		
 	}
 	
