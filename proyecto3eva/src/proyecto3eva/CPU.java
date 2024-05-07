@@ -46,6 +46,26 @@ public class CPU {
 	public void mulpila() {
 		
 	}
+	
+	public void push(int n) {
+		/*lo mete en la pila del operandStack*/
+		
+	}
+	
+	public void load(int pos) {
+		
+	}
+	
+	public void store(int pos ) {
+		
+	}
+	
+	public void out() {
+		
+	}
+	
+	
+	
 	public boolean execute(ByteCode instr) {
 		
 		/*if(instr == ENUM_BYTECODE.ADD) {

@@ -5,6 +5,7 @@ public class CommandParser {
 	public static Command parse(String line) {
 	        String[] parts = line.split(" ");
 	        ENUM_COMMAND commandEnum;	
+	        ByteCode instruction; 
 	  
 	        if (parts.length == 1) {
 	        	switch (parts[0]) {
@@ -23,7 +24,7 @@ public class CommandParser {
 	        	
 	        	switch (parts[0]) {
 	            case "NEWINST":
-	            	ByteCode instruction = ByteCodeParser.parse(parts[1]);
+	            	instruction = ByteCodeParser.parse(parts[1]);
 	            	return new Command(ENUM_COMMAND.NEWINST, instruction);
 	            case "REPLACE":
 	            	int replace = Integer.parseInt(parts[1]);
@@ -35,7 +36,7 @@ public class CommandParser {
 	        	switch (parts[0]) {
 	            case "NEWINST":
 	            	String temp = parts[1] + " " + parts[2];
-	        		ByteCode instruction = ByteCodeParser.parse(temp);
+	        		instruction = ByteCodeParser.parse(temp);
 	            	return new Command(ENUM_COMMAND.NEWINST, instruction);
 	            default:
 	            	return null;

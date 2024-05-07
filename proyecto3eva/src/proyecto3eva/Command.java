@@ -4,19 +4,19 @@ package proyecto3eva;
 
 public class Command {
 	
-	private ENUM_COMMAND command;
+	private ENUM_COMMAND name;
 	private ByteCode instruction;
 	private int replace;
 	
     public Command(ENUM_COMMAND command) {
-        this.command = command;
+        this.name = command;
     }
     public Command(ENUM_COMMAND command, ByteCode instruction) {
-        this.command = command;
+        this.name = command;
         this.instruction = instruction;
     }
     public Command(ENUM_COMMAND command, int replace) {
-        this.command = command;
+        this.name = command;
         this.replace = replace;
     }
     
@@ -24,38 +24,36 @@ public class Command {
 
     
     
-	public static boolean execute(String engine) {
+	public boolean execute(Engine engine) {
 
 		
-		String[] parts = engine.trim().split(" ");
 		
-		Engine engine1 = new Engine();
 		
-		switch (parts[0]) {
-		case "HELP":
-			engine1.help();
+		//Engine engine1 = new Engine();
+		
+		
+		switch (this.name) {
+		case HELP:
+			engine.help();
 			return true;
-		case "QUIT":
-			engine1.setEnd();
-			engine1.quit();
+		case QUIT:
+			engine.setEnd();
+			engine.quit();
 			return true;
-		case "RUN":
-			engine1.run();
+		case RUN:
+			engine.run();
 			return true;
-		case "NEWINST":
+		case NEWINST:
 			/*manda un objeto tipo ByteCode*/
-			String temp = parts[1] + " " + parts[2];
-			ByteCode bytecode = ByteCodeParser.parse(temp);
-			engine1.newinst(bytecode);
+
+			engine.newinst(this.instruction);
 			return true;
-		case "RESET":
-			engine1.reset();
+		case RESET:
+			engine.reset();
 			return true;
-		case "REPLACE":
+		case REPLACE:
 			/*manda al metodo replace el numero*/
-			/*hay que pasar de String a int para pasarselo a replace*/
-			int numEntero = Integer.parseInt(parts[0]);
-			engine1.replace(numEntero);
+			engine.replace(this.replace);
 			return true;
 		default:
 			System.out.println("Comando no reconocido.");

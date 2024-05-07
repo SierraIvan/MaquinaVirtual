@@ -3,16 +3,17 @@ package proyecto3eva;
 import java.util.Scanner;
 
 	class Engine {
-	    private ByteCodeProgram program;
+	    ByteCodeProgram program;
 	    CPU cpu;
 	    boolean end;
 	    Scanner sc;
+	    
 	
 	    public Engine() {
-	        this.program = new ByteCodeProgram();
+	    	this.program = new ByteCodeProgram();
 	        this.cpu = new CPU();
 	        this.end = false;
-	        sc = new Scanner(System.in);
+	        this.sc = new Scanner(System.in);
 	    }
 	        
 	
@@ -32,7 +33,7 @@ import java.util.Scanner;
 		            System.out.println("ERROR, el comando " + option + " no es valido");
 		        } else {
 		            // Pasamos 'this' como argumento para que Command pueda ejecutar el comando en el contexto de 'this' (Engine)
-		            command.execute(option);
+		            command.execute(this);
 		        }
 		    } while (!option.equals("QUIT"));
 		}
@@ -79,8 +80,11 @@ import java.util.Scanner;
 			
 		}
 	
-		public void replace(int Num) {
-			System.out.println("se remplazo correctamente(es solo un syso, pero espero que no se de cuenta)");
+		public void replace(Integer Num) {
+			
+			System.out.println(Num);
+			System.out.println("Nueva instruccion");
+			
 			
 		}
 	

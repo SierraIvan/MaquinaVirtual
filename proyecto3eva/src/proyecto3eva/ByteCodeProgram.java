@@ -7,15 +7,19 @@ public class ByteCodeProgram {
 	private int NumElem;
 	
 	public ByteCodeProgram() {
-        this.size = 1;
+        this.size = 10;
         this.program = new ByteCode[size];
         this.NumElem = 0;
     }
+	
+	
+	
 	/*addbytecode*/
 	public void setInstruction(ByteCode instruction) {
-		if(NumElem < program.length) {
-		program[NumElem] = instruction;
-		NumElem++;
+		if(this.NumElem < this.program.length) {
+		this.program[this.NumElem] = instruction;
+		this.NumElem++;
+		System.out.println(program[0]);
 		}else {
 			System.out.println("ERROR: no se pueden agregar, el programa esta completo");
 		}
@@ -23,7 +27,7 @@ public class ByteCodeProgram {
 	
 	public void replacebytecode(ByteCode instruction, int pos) {
 	
-		if(pos <= NumElem) {
+		if(pos <= this.NumElem) {
 		program[pos] = instruction;
 		}else {
 			System.out.println("no hay nada en ese espacio, porfavor, elija un espacio ya ocupado para poder reemplazarlo");

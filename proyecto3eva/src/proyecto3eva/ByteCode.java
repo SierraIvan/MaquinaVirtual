@@ -17,42 +17,16 @@ public class ByteCode {
 		// TODO Auto-generated constructor stub
 	}
 
-	public void push(int n) {
-		/*lo mete en la pila del operandStack*/
-		
+	public ENUM_BYTECODE getbytecode() {
+		return this.name;
 	}
 	
-	public void add() {
-		
+	public int getparam() {
+		return this.param;
 	}
 	
-	public void sub() {
-		
-	}
 	
-	public void mul() {
-		
-	}
 	
-	public void div() {
-		
-	}
-	
-	public void load(int pos) {
-		
-	}
-	
-	public void store(int pos ) {
-		
-	}
-	
-	public void out() {
-		
-	}
-	
-	public void halt() {
-		
-	}
 	
 	public String ToString() {
 		String param2 = param.toString();
