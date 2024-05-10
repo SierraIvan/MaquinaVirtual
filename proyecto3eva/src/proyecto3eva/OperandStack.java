@@ -12,35 +12,43 @@ public class OperandStack {
 	}
 
 	public String toString() {
-		String temp = null;
-		if(stack.length == 0) {
-			temp = "vacio";
+		String chain = "";
+		if (this.isEmpty() == true) {
+			return "<Vacia>";
+		} else {
+
+			for (int i = 0; i < this.numElems; i++) {
+				chain += stack[i] + " ";
+			}
+			return chain;
 		}
-		return temp;
 	}
 
 	public boolean isEmpty() {
-		return this.numElems == 0;
-		
+		if (this.numElems == 0) {
+			return true;
+		}
+		return false;
+
 	}
 
 	public boolean push(int elem) {
-		if(MAX_STACK <= numElems) {
+		if (MAX_STACK <= numElems) {
 			System.out.println("La pila está llena.");
-            return false;
+			return false;
 		}
+
+		stack[numElems] = elem;
 		numElems++;
-        stack[numElems] = elem;
-        return true;
-		
+		return true;
 	}
 
 	public int pop() {
 		if (isEmpty()) {
-			System.out.println("la pila esta vacia");
 			return -1;
-		}else {
-			int value = stack[numElems];
+		} else {
+			int value = stack[numElems - 1];
+			stack[numElems - 1] = 0;
 			numElems--;
 			return value;
 		}
@@ -48,11 +56,16 @@ public class OperandStack {
 
 	public int peek() {
 		if (isEmpty()) {
-			System.out.println("la pila esta vacia");
 			return -1;
-		}else {
+		} else {
 			return stack[numElems];
 		}
+	}
+
+	public int getcima() {
+
+		return stack[numElems - 1];
+
 	}
 
 }

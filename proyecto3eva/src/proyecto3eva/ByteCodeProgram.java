@@ -1,12 +1,13 @@
 package proyecto3eva;
 
 public class ByteCodeProgram {
-	
+	OperandStack operandStack;
 	private ByteCode[] program;
 	private int size;
 	private int NumElem;
 	
 	public ByteCodeProgram() {
+		operandStack = new OperandStack();
         this.size = 10;
         this.program = new ByteCode[size];
         this.NumElem = 0;
@@ -42,9 +43,28 @@ public class ByteCodeProgram {
 		
 		String temp = "";
 		for(int i = 0; i < program.length;i++) {
-			temp = temp + " " + program[i];
+			if(program[i] == null) {
+				
+			}else {
+				
+			temp = temp + i + ": " + program[i].getbytecode();
+			 switch (program[i].getbytecode()) {
+	            case PUSH:
+	            case LOAD:
+	            case STORE:
+	                temp += " " + program[i].getparam();
+	                break;
+	            default:
+	                break;
+	        }
+			
+			 temp += "\n";
+			
+			}
+			
 		}
 		return temp;
+		
 		
 	}
 	
@@ -59,9 +79,14 @@ public class ByteCodeProgram {
 	}
 	
 	public String runProgram(CPU cpu) {
-		String mensaje = "hola";
+		String mensaje = "";
 		for(int i = 0; i < NumElem;i++) {
+			
 			if(!cpu.isHalt() && cpu.execute(this.program [i])) {
+				
+				mensaje = "El estado de la maquina tras ejecutar el bytecode PUSH 3 es: ";
+				System.out.println(mensaje);
+				operandStack.toString();
 				
 			}else if(!cpu.isHalt()) {
 				
@@ -73,7 +98,7 @@ public class ByteCodeProgram {
 	
 	
 	public void reset() {
-		this.size = 1;
+		this.size = 10;
 		this.program = new ByteCode[size];
 		this.NumElem = 0;
 	}

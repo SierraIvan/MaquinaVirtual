@@ -29,11 +29,16 @@ import java.util.Scanner;
 		        
 		        Command command = CommandParser.parse(option);
 		        System.out.println("Comienza la ejecucion de " + option);
+		        
+		        
 		        if (command == null) {
 		            System.out.println("ERROR, el comando " + option + " no es valido");
+		            
 		        } else {
 		            // Pasamos 'this' como argumento para que Command pueda ejecutar el comando en el contexto de 'this' (Engine)
 		            command.execute(this);
+		            System.out.println("Programa almacenado: ");
+		            System.out.println(program.toString());
 		        }
 		    } while (!option.equals("QUIT"));
 		}
@@ -58,16 +63,16 @@ import java.util.Scanner;
 		public void run() {
 
 			System.out.println("Iniciando el programa...");
-			ByteCodeProgram byteCodeProgram = new ByteCodeProgram();
-			byteCodeProgram.runProgram(cpu);
+			
+			program.runProgram(cpu);
 			
 				
 		}
 	
 		public void newinst(ByteCode BC) {
-			System.out.println("Hola mundo");
+		
 			/*crea una instruccion (push 3) que la añade al ByteCodeProgram*/
-			System.out.println(BC);
+			//System.out.println(BC.getbytecode() + " " + BC.getparam());
 			this.program.setInstruction(BC);
 			
 			
@@ -75,8 +80,8 @@ import java.util.Scanner;
 	
 		public void reset() {
 			System.out.println("pila reseteada");
-			ByteCodeProgram byteCodeProgram = new ByteCodeProgram();
-			byteCodeProgram.reset();
+		
+			this.program.reset();
 			
 		}
 	

@@ -43,7 +43,7 @@ public class Memory {
 	    }
 	
 	//recibe posicion del array
-	public Integer Read(int pos) {
+	public Integer read(int pos) {
 		//System.out.println(this.memory[pos]);
 		if(this.memory[pos] == null) {
 			return -1;

@@ -27,8 +27,6 @@ public class Command {
 	public boolean execute(Engine engine) {
 
 		
-		
-		
 		//Engine engine1 = new Engine();
 		
 		
