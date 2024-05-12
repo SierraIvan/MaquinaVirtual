@@ -7,9 +7,18 @@ public class ByteCodeParser {
 		
 		String[] parts = s.split(" ");
 		
+
+		
 		ENUM_BYTECODE bytecodeEnum;
         bytecodeEnum = ENUM_BYTECODE.valueOf(parts[0].toUpperCase());
 		
+       /* if(bytecodeEnum != ENUM_BYTECODE.ADD || bytecodeEnum != ENUM_BYTECODE.SUB || bytecodeEnum != ENUM_BYTECODE.MUL || bytecodeEnum != ENUM_BYTECODE.DIV
+        		|| bytecodeEnum != ENUM_BYTECODE.OUT || bytecodeEnum != ENUM_BYTECODE.HALT || bytecodeEnum != ENUM_BYTECODE.PUSH
+        		|| bytecodeEnum != ENUM_BYTECODE.LOAD || bytecodeEnum != ENUM_BYTECODE.STORE) {
+        	return null;
+        	
+        }*/
+        
 		if(parts.length == 0) {
 			return null;
 		}else if(parts.length == 1) {
@@ -26,6 +35,10 @@ public class ByteCodeParser {
 				return new ByteCode(ENUM_BYTECODE.OUT);
 			case HALT:
 				return new ByteCode(ENUM_BYTECODE.HALT);
+			default:
+				return null;
+			
+				
 				//return new ByteCode(ENUM_BYTECODE.valueOf(s), ENUM_BYTECODE.valueOf(s).getValueArg());
 				//valueOf, recoge el valor de s, es decir si s es ADD, ENUM_BYTECODE.valueOf(s) devuelve ENUM_BYTECODE.ADD
 			}

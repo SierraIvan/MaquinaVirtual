@@ -28,6 +28,9 @@ import java.util.Scanner;
 		        
 		        
 		        Command command = CommandParser.parse(option);
+		        if(command == null) {
+		        	
+		        }
 		        System.out.println("Comienza la ejecucion de " + option);
 		        
 		        
@@ -49,22 +52,22 @@ import java.util.Scanner;
 	    }
 	    
 		public void help() {
-			System.out.println("HELP: Te muestra los comandos\nQUIT: Se sale del programa\nRUN: Inicia el programa");
-			System.out.println("NEWINST BYTECODE: Introduce una nueva instrucción al programa\nRESET: Resetea el programa");
-			System.out.println("REPLACE N: Reemplaza la instrucción N");
+			System.out.println(" HELP: Te muestra los comandos\n QUIT: Se sale del programa\n RUN: Inicia el programa");
+			System.out.println(" NEWINST BYTECODE: Introduce una nueva instrucción al programa\n RESET: Resetea el programa");
+			System.out.println(" REPLACE N: Reemplaza la instrucción N");
 		}
 	
 		public void quit() {
 			setEnd();
-			System.out.println("Saliendo del programa...");
 	
 		}
 	
 		public void run() {
 
-			System.out.println("Iniciando el programa...");
 			
 			program.runProgram(cpu);
+			
+			
 			
 				
 		}
@@ -89,6 +92,11 @@ import java.util.Scanner;
 			
 			System.out.println(Num);
 			System.out.println("Nueva instruccion");
+			String optionreplace = sc.nextLine().toUpperCase();
+			ByteCode command = ByteCodeParser.parse(optionreplace);
+			System.out.println(command.getbytecode());
+			this.program.replacebytecode(command, Num);
+			
 			
 			
 		}

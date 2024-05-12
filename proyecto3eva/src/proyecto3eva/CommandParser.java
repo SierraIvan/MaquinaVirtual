@@ -25,6 +25,9 @@ public class CommandParser {
 	        	switch (parts[0]) {
 	            case "NEWINST":
 	            	instruction = ByteCodeParser.parse(parts[1]);
+	            	if(instruction == null) {
+	            		return null;
+	            	}
 	            	return new Command(ENUM_COMMAND.NEWINST, instruction);
 	            case "REPLACE":
 	            	int replace = Integer.parseInt(parts[1]);

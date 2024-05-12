@@ -16,7 +16,6 @@ public class OperandStack {
 		if (this.isEmpty() == true) {
 			return "<Vacia>";
 		} else {
-
 			for (int i = 0; i < this.numElems; i++) {
 				chain += stack[i] + " ";
 			}

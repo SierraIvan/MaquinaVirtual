@@ -13,10 +13,9 @@ public class CPU {
 	}
 
 	public void ToString() {
-		OperandStack operandStack = new OperandStack();
-		operandStack.toString();
-		Memory memory = new Memory();
-		memory.toString();
+	
+		pila.toString();
+		memoria.toString();
 	}
 
 	public void erase() {
@@ -97,9 +96,11 @@ public class CPU {
 
 	}
 
-	public void load(int pos) {
+	public boolean load(int pos) {
 
 		memoria.read(pos);
+		return true;
+		
 
 	}
 
@@ -132,6 +133,8 @@ public class CPU {
 			return out();
 		case PUSH:
 			return push(instr.getparam());
+		case LOAD:
+			return load(instr.getparam());
 		case HALT:
 			halt();
 			return true;
