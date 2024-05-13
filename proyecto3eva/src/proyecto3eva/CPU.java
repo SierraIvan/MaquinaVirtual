@@ -12,10 +12,9 @@ public class CPU {
 		this.end = false;
 	}
 
-	public void ToString() {
 	
-		pila.toString();
-		memoria.toString();
+	public String toString() {
+		return "\n" + "\nEstado de la cpu; \n" 	+ memoria.toString()  + " \n"+ pila.toString() + "\n";
 	}
 
 	public void erase() {
@@ -37,7 +36,7 @@ public class CPU {
 
 		int resultado = num1 + num2;
 
-		System.out.println(resultado);
+		//System.out.println(resultado);
 		pila.push(resultado);
 
 		return true;
@@ -98,19 +97,28 @@ public class CPU {
 
 	public boolean load(int pos) {
 
-		memoria.read(pos);
-		return true;
+		Integer CimaMemo = memoria.read(pos);
+		if(pila.push(CimaMemo)) {
+			return true;
+		}
+		return false;
 		
 
 	}
 
-	public void store(int pos) {
+	public boolean store(int pos) {
 
-		// memoria.store(pos, pila.peek());
+		Integer CimaMemo = pila.getCima();
+		if(memoria.write(pos, CimaMemo)) {
+			pila.pop();
+			return true;
+		}
+		
+		return false;
 	}
 
 	public boolean out() {
-		System.out.println("Cima de la pila: " + pila.getcima());
+		System.out.println("Cima de la pila: " + pila.getCima());
 		return true;
 	}
 	
@@ -133,6 +141,8 @@ public class CPU {
 			return out();
 		case PUSH:
 			return push(instr.getparam());
+		case STORE:
+			return store(instr.getparam());
 		case LOAD:
 			return load(instr.getparam());
 		case HALT:
@@ -142,6 +152,10 @@ public class CPU {
 			System.out.println("Error: instrucción no reconocida.");
 			return false;
 		}
+	}
+
+	public OperandStack getOperandStack() {
+		return this.pila;
 	}
 
 }

@@ -19,16 +19,14 @@ public class OperandStack {
 			for (int i = 0; i < this.numElems; i++) {
 				chain += stack[i] + " ";
 			}
+			chain = "Pila: " + chain;
 			return chain;
 		}
 	}
 
 	public boolean isEmpty() {
-		if (this.numElems == 0) {
-			return true;
-		}
-		return false;
-
+		
+		return (this.numElems == 0);
 	}
 
 	public boolean push(int elem) {
@@ -61,7 +59,7 @@ public class OperandStack {
 		}
 	}
 
-	public int getcima() {
+	public int getCima() {
 
 		return stack[numElems - 1];
 
