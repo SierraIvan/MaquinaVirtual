@@ -7,6 +7,7 @@ Este proyecto consiste en la implementación de una versión básica de una máq
 Funcionalidades:
 
 Ayuda (HELP): Muestra información sobre los distintos comandos disponibles.
+
 Salir (QUIT): Cierra la aplicación.
 Nueva Instrucción (NEWINST BC): Introduce una instrucción bytecode al programa actual.
 Ejecutar Programa (RUN): Ejecuta el programa actual.
