@@ -1,11 +1,11 @@
 # MaquinaVirtual
 
-Descripción:
+---Descripción:
 
 Este proyecto consiste en la implementación de una versión básica de una máquina virtual en Java, como ejercicio introductorio a la orientación a objetos y al lenguaje Java. La máquina virtual simula un entorno donde se pueden ejecutar programas mediante una serie de comandos introducidos por el usuario. Estos programas están compuestos por una lista de instrucciones bytecode y pueden interactuar con una memoria y una pila de operandos.
 
 
-Funcionalidades:
+---Funcionalidades:
 
 
 Ayuda (HELP): Muestra información sobre los distintos comandos disponibles.
@@ -21,7 +21,7 @@ Reiniciar Programa (RESET): Inicializa el programa actual eliminando todas las i
 Reemplazar Instrucción (REPLACE N): Reemplaza la instrucción bytecode número N del programa.
 
 
-Instrucciones Bytecode admitidas:
+---Instrucciones Bytecode admitidas:
 
 
 PUSH n: Apila en la pila de operandos el entero n.
@@ -37,12 +37,8 @@ OUT: Escribe el entero almacenado en la cima de la pila.
 HALT: Detiene la ejecución de la máquina.
 
 
-Ejemplos de Ejecución:
 
-
-El proyecto incluye ejemplos de ejecución que ilustran el funcionamiento de la máquina virtual, así como casos de error y su manejo.
-
-Implementación:
+---Implementación:
 
 
 El proyecto se implementa mediante diversas clases:
@@ -69,7 +65,7 @@ ByteCodeParser: Parsea los bytecodes introducidos por el usuario.
 Main: Clase principal que contiene el método main de la aplicación.
 
 
-Instrucciones para Ejecutar:
+---Instrucciones para Ejecutar:
 
 
 Para ejecutar la aplicación, simplemente compila el código Java y ejecuta la clase Main.
