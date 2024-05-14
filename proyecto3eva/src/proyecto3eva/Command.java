@@ -1,5 +1,10 @@
 package proyecto3eva;
 
+/**
+ * Maquina virtual, proyecto tercera evaluacion
+ * 
+ * @author Sierr
+ */
 
 
 public class Command {
@@ -23,7 +28,11 @@ public class Command {
     
 
     
-    
+    /**
+     * metodo para ejecutar los comandos
+     * @param engine
+     * @return
+     */
 	public boolean execute(Engine engine) {
 
 		

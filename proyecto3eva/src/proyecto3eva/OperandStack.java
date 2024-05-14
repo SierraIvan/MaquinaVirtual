@@ -1,5 +1,11 @@
 package proyecto3eva;
 
+/**
+ * Maquina virtual, proyecto tercera evaluacion
+ * 
+ * @author Sierr
+ */
+
 public class OperandStack {
 
 	private final int MAX_STACK = 10;
@@ -11,6 +17,9 @@ public class OperandStack {
 		this.numElems = 0;
 	}
 
+	/**
+	 * metodo que transforma el array en un string
+	 */
 	public String toString() {
 		String chain = "";
 		if (this.isEmpty() == true) {
@@ -24,11 +33,20 @@ public class OperandStack {
 		}
 	}
 
+	/**
+	 * metodo que devuelve si el array esta vacio o no
+	 * @return
+	 */
 	public boolean isEmpty() {
-		
+
 		return (this.numElems == 0);
 	}
 
+	/**
+	 * metodo para meter en el array
+	 * @param elem
+	 * @return
+	 */
 	public boolean push(int elem) {
 		if (MAX_STACK <= numElems) {
 			System.out.println("La pila está llena.");
@@ -39,6 +57,11 @@ public class OperandStack {
 		numElems++;
 		return true;
 	}
+	
+	/**
+	 * metodo para sacar del array
+	 * @return
+	 */
 
 	public int pop() {
 		if (isEmpty()) {
@@ -50,6 +73,11 @@ public class OperandStack {
 			return value;
 		}
 	}
+	
+	/**
+	 * metodo para mostrar valor del array
+	 * @return
+	 */
 
 	public int peek() {
 		if (isEmpty()) {
@@ -58,6 +86,10 @@ public class OperandStack {
 			return stack[numElems];
 		}
 	}
+	/**
+	 * metodo que devuelve la cima del array
+	 * @return
+	 */
 
 	public int getCima() {
 

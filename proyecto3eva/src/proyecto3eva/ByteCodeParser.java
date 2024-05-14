@@ -1,7 +1,16 @@
 package proyecto3eva;
 
+/**
+ * Maquina virtual, proyecto tercera evaluacion
+ * 
+ * @author Sierr
+ */
 public class ByteCodeParser {
-	
+	/**
+	 * metodo estatico que identifica el bytecode
+	 * @param s
+	 * @return
+	 */
 	public static ByteCode parse(String s){
 		
 		

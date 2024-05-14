@@ -1,4 +1,9 @@
 package proyecto3eva;
+/**
+ * Maquina virtual, proyecto tercera evaluacion
+ * 
+ * @author Sierr
+ */
 
 public class ByteCodeProgram {
 	OperandStack operands;
@@ -15,6 +20,11 @@ public class ByteCodeProgram {
 	}
 
 	/* addbytecode */
+	/**
+	 * mete una instruccion en el array
+	 * @param instruction
+	 */
+	
 	public void setInstruction(ByteCode instruction) {
 		if (NumElem >= size) {
 			this.resize();
@@ -24,6 +34,11 @@ public class ByteCodeProgram {
 
 	}
 
+	/**
+	 * remplaza un bytecode
+	 * @param instruction
+	 * @param pos
+	 */
 	public void replacebytecode(ByteCode instruction, int pos) {
 
 		if (pos <= this.NumElem) {
@@ -34,6 +49,9 @@ public class ByteCodeProgram {
 		}
 	}
 
+	/**
+	 * este metodo aumenta el tamaño del array
+	 */
 	public void resize() {
 		size = size * 2;
 		
@@ -45,6 +63,9 @@ public class ByteCodeProgram {
 		
 	}
 
+	/**
+	 * convierte el array en un string
+	 */
 	public String toString() {
 
 		String temp = "";
@@ -72,17 +93,22 @@ public class ByteCodeProgram {
 		return temp;
 
 	}
-
+/**
+ * retorna el bytecode de la posicion indicada
+ * @param pos
+ * @return
+ */
 	public ByteCode get(int pos) {
 
 		return this.program[pos];
 
 	}
 
-	public void set() {
-
-	}
-
+/**
+ * metodo para recorrer el programa
+ * @param cpu
+ * @return
+ */
 	public String runProgram(CPU cpu) {
 		String mensaje = "";
 		for (int i = 0; i < this.NumElem; i++) {
@@ -115,7 +141,9 @@ public class ByteCodeProgram {
 		cpu.erase();
 		return mensaje;
 	}
-
+/**
+ * metodo para resetear los parametros de la clase
+ */
 	public void reset() {
 		this.size = 1;
 		this.program = new ByteCode[size];
@@ -123,18 +151,4 @@ public class ByteCodeProgram {
 	}
 
 }
-/*
- * public String runProgram(CPU cpu) { String mensaje = ""; for (int i = 0; i <
- * NumElem; i++) {
- * 
- * if (!cpu.isHalt() && cpu.execute(this.program[i])) {
- * 
- * if (this.program[i].getbytecode() == ENUM_BYTECODE.ADD) { mensaje =
- * "El estado de la maquina tras ejecutar de " + this.program[i].getbytecode() +
- * " es: "; } else { mensaje = "El estado de la maquina tras ejecutar de " +
- * this.program[i].getbytecode() + " " + this.program[i].getparam() + " es: "; }
- * 
- * System.out.println(mensaje); } else if (!cpu.isHalt()) {
- * 
- * } } operandStack.toString(); cpu.erase(); return mensaje; }
- */
+

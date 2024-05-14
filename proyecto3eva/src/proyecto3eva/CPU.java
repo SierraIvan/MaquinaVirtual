@@ -1,5 +1,11 @@
 package proyecto3eva;
 
+/**
+ * Maquina virtual, proyecto tercera evaluacion
+ * 
+ * @author Sierr
+ */
+
 public class CPU {
 
 	private OperandStack pila;
@@ -12,20 +18,39 @@ public class CPU {
 		this.end = false;
 	}
 
-	
+	/**
+	 * metodo para escribir el estado de la cpu
+	 * 
+	 * @param
+	 * @return
+	 */
 	public String toString() {
-		return "\n" + "\nEstado de la cpu; \n" 	+ memoria.toString()  + " \n"+ pila.toString() + "\n";
+		return "\n" + "\nEstado de la cpu; \n" + memoria.toString() + " \n" + pila.toString() + "\n";
 	}
 
+	/**
+	 * metodo para reiniciar la pila y la memoria
+	 * 
+	 * @param
+	 */
 	public void erase() {
 		this.pila = new OperandStack();
 		this.memoria = new Memory();
 	}
 
+	/**
+	 * booleano que retorna el final de la maquina
+	 * @return
+	 */
+	
 	public boolean isHalt() {
 		return end;
 	}
 
+	/**
+	 * metodo para sumas
+	 * @return
+	 */
 	public boolean sumapila() {
 		/*
 		 * usar metodo pop, para sacarlo de la pila, sumarlo y luego meter el resultado
@@ -36,7 +61,7 @@ public class CPU {
 
 		int resultado = num1 + num2;
 
-		//System.out.println(resultado);
+		// System.out.println(resultado);
 		pila.push(resultado);
 
 		return true;
@@ -45,9 +70,13 @@ public class CPU {
 
 	}
 
+	/**
+	 * metodo para restar
+	 * @param
+	 * @return
+	 */
 	public boolean restapila() {
 
-		
 		int num1 = pila.pop();
 		int num2 = pila.pop();
 
@@ -59,9 +88,12 @@ public class CPU {
 
 	}
 
+	/**
+	 * metodo para dividir
+	 * @param
+	 */
 	public boolean divpila() {
 
-	
 		int num1 = pila.pop();
 		int num2 = pila.pop();
 
@@ -72,20 +104,27 @@ public class CPU {
 		return true;
 	}
 
+	/**
+	 * metodo para multiplicar
+	 * @return
+	 */
 	public boolean mulpila() {
 
-		
 		int num1 = pila.pop();
 		int num2 = pila.pop();
 
 		int resultado = num1 * num2;
 
-		System.out.println(resultado);
 		pila.push(resultado);
 		return true;
 
 	}
 
+	/**
+	 * metodo para meter un valor en la pila
+	 * @param n
+	 * @return
+	 */
 	public boolean push(int n) {
 		/* lo mete en la pila del operandStack */
 		/* tengo que usar las otras clases */
@@ -94,39 +133,63 @@ public class CPU {
 		return true;
 
 	}
+	
+	/**
+	 * metodo para hacer load
+	 * @param pos
+	 * @return
+	 */
 
 	public boolean load(int pos) {
 
 		Integer CimaMemo = memoria.read(pos);
-		if(pila.push(CimaMemo)) {
+		if (pila.push(CimaMemo)) {
 			return true;
 		}
 		return false;
-		
 
 	}
 
+	
+	/**
+	 * metodo para hacer store
+	 * @param pos
+	 * @return
+	 */
 	public boolean store(int pos) {
 
 		Integer CimaMemo = pila.getCima();
-		if(memoria.write(pos, CimaMemo)) {
+		if (memoria.write(pos, CimaMemo)) {
 			pila.pop();
 			return true;
 		}
-		
+
 		return false;
 	}
 
+	/**
+	 * metodo para hacer out
+	 * @return
+	 */
 	public boolean out() {
 		System.out.println("Cima de la pila: " + pila.getCima());
 		return true;
 	}
+
+	/**
+	 * metodo para hacer out
+	 */
 	
 	public void halt() {
 		this.end = true;
 	}
-	
 
+	
+	/**
+	 * metodo para identificar el ByteCode y realizar la operacion
+	 * @param instr
+	 * @return
+	 */
 	public boolean execute(ByteCode instr) {
 		switch (instr.getbytecode()) {
 		case ADD:

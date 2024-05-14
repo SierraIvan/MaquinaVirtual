@@ -1,5 +1,10 @@
 package proyecto3eva;
 
+/**
+ * Maquina virtual, proyecto tercera evaluacion
+ * 
+ * @author Sierr
+ */
 public enum ENUM_COMMAND {
 	HELP, QUIT, NEWINST(1), RUN, RESET, REPLACE(1);
 	private int valueArg;

@@ -1,7 +1,17 @@
 package proyecto3eva;
+/**
+ * Maquina virtual, proyecto tercera evaluacion
+ * 
+ * @author Sierr
+ */
 
 public class CommandParser {
 
+	/**
+	 * metodo para identificar que comando es
+	 * @param line
+	 * @return
+	 */
 	public static Command parse(String line) {
 	        String[] parts = line.split(" ");
 	        ENUM_COMMAND commandEnum;	
@@ -53,12 +63,3 @@ public class CommandParser {
 	}
 }
 
-/*
- * String option = line.toUpperCase(); if(!option.equals("HELP") &&
- * !option.equals("QUIT") && !option.equals("NEWINST") && !option.equals("RUN")
- * && !option.equals("REPLACE") && !option.equals("RESET")) {
- * 
- * return null;
- * 
- * }else { return new Command(null, null, -1); }
- */
